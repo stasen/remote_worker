@@ -8,10 +8,16 @@ class Worker:
         self.copy_worker()
         
     def copy_worker(self):
+        """
+        Copy remote_runner.pyw to remote PC
+        """
         if isdir("directory/to/destination"): rmtree("directory/to/destination")
         copytree("directory/to/source", "directory/to/destination")
 
     def send_command(self, command):
+        """
+        Send command to remote mechine using pypsexec client
+        """
         c = Client("remote_machine_ip", username="remote_machine_username", password="remote_machine_password")
         c.connect()
         c.create_service()
